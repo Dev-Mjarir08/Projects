@@ -362,10 +362,10 @@ $(document).ready(function () {
   ════════════════════════════════════════════ */
   const skills = [
     { name: 'JavaScript / TypeScript', level: 95, icon: 'fab fa-js-square' },
-    { name: 'React / Next.js', level: 92, icon: 'fab fa-react' },
+    { name: 'React .js', level: 92, icon: 'fab fa-react' },
     { name: 'Node.js / Express', level: 90, icon: 'fab fa-node-js' },
-    { name: 'MongoDB', level: 85, icon: 'fas fa-database' },
-    { name: 'UI/UX Design', level: 75, icon: 'fas fa-paint-brush' },
+    { name: 'MongoDB', level: 90, icon: 'fas fa-database' },
+    { name: 'Tailwind CSS', level: 85, icon: 'devicon-tailwindcss-plain ' },
   ];
 
   const techStack = [
@@ -433,75 +433,26 @@ $(document).ready(function () {
   const projects = [
     {
       id: 1,
-      title: 'CloudCommerce',
-      description: 'A full-featured e-commerce SaaS platform with real-time inventory, Stripe payments, role-based admin dashboard, and multi-vendor support.',
-      category: 'fullstack',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redis'],
-      icon: 'fas fa-shopping-cart',
-      iconBg: 'from-blue-600 to-purple-600',
-      live: '#',
-      github: '#',
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'DevFlow',
-      description: 'A developer productivity tool — Kanban boards, GitHub integration, automated PR tracking, and AI-powered task estimation.',
-      category: 'fullstack',
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'GraphQL', 'Docker'],
-      icon: 'fas fa-code-branch',
-      iconBg: 'from-green-600 to-teal-600',
-      live: '#',
-      github: '#',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'MotionUI Kit',
-      description: 'Open-source React animation component library with 50+ smooth, accessible motion primitives. Used by 1,200+ developers.',
-      category: 'frontend',
-      tags: ['React', 'TypeScript', 'Framer Motion', 'Storybook', 'npm'],
-      icon: 'fas fa-magic',
-      iconBg: 'from-pink-600 to-rose-600',
-      live: '#',
-      github: '#',
-      featured: false
-    },
-    {
-      id: 4,
-      title: 'APIForge',
-      description: 'A REST API builder and testing platform — visual schema editor, auto-generate SDKs, mock endpoints, and team collaboration.',
+      title: 'Dent-Care',
+      description: 'A modern dental clinic management system built with Node.js and Express. Features include patient registration, appointment booking, authentication system, admin dashboard, and real-time notifications for better clinic workflow.',
       category: 'backend',
-      tags: ['Node.js', 'Express', 'MongoDB', 'Socket.io', 'AWS'],
-      icon: 'fas fa-plug',
-      iconBg: 'from-orange-600 to-amber-600',
-      live: '#',
-      github: '#',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'PulseAnalytics',
-      description: 'Real-time web analytics dashboard with event tracking, funnel visualization, heatmaps, and privacy-first data collection.',
-      category: 'fullstack',
-      tags: ['Vue 3', 'Python', 'FastAPI', 'TimescaleDB', 'D3.js'],
-      icon: 'fas fa-chart-line',
-      iconBg: 'from-cyan-600 to-blue-600',
-      live: '#',
-      github: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'Zenith Design System',
-      description: 'A comprehensive design system and component library for enterprise apps — 80+ components, dark mode, a11y, and Figma integration.',
-      category: 'frontend',
-      tags: ['React', 'Tailwind', 'TypeScript', 'Figma', 'Chromatic'],
-      icon: 'fas fa-layer-group',
-      iconBg: 'from-violet-600 to-purple-600',
-      live: '#',
-      github: '#',
-      featured: false
+      tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
+      icon: 'fas fa-tooth',
+      iconBg: 'from-blue-500 to-cyan-600',
+      live: 'https://your-live-link.com',   
+      github: 'https://github.com/your-repo-link', 
+      featured: true
+    }, {
+      id: 2,
+      title: 'Employee Management System',
+      description: 'A backend-driven employee management system built with Node.js and Express. Features include employee CRUD operations, role-based authentication, attendance tracking, and admin dashboard for efficient workforce management.',
+      category: 'backend',
+      tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
+      icon: 'fas fa-users',
+      iconBg: 'from-green-500 to-emerald-600',
+      live: 'https://pr-ems.onrender.com/',   
+      github: 'https://github.com/Dev-Mjarir08/PR-EMS', 
+      featured: true
     }
   ];
 
@@ -579,10 +530,10 @@ $(document).ready(function () {
   ════════════════════════════════════════════ */
   const experiences = [
     {
-      role: 'Senior Full Stack Developer',
-      company: 'TechScale Inc.',
-      period: '2023 — Present',
-      desc: 'Led development of a multi-tenant SaaS platform serving 50K+ users. Reduced API latency by 60% and rebuilt frontend architecture in Next.js.'
+      role: 'Dant Care',
+      company: 'Backend Developement',
+      period: 'May-2026',
+      desc: 'Engineered a clinic management platform with Node.js, featuring secure authentication, appointment handling, and dashboard tools for efficient operations.'
     },
     {
       role: 'Full Stack Developer',
@@ -600,10 +551,10 @@ $(document).ready(function () {
 
   const education = [
     {
-      degree: 'B.S. Computer Science',
-      institution: 'Massachusetts Institute of Technology',
-      period: '2016 — 2020',
-      desc: 'Focus on Software Engineering and Distributed Systems. Senior thesis: "Optimizing Real-Time Data Pipelines at Scale".'
+      project: 'Dent-Care - Clinic Management System',
+      institution: 'Personal Project',
+      period: '2025',
+      desc: 'Built a full-stack dental clinic management system with Node.js, Express, and MongoDB. Designed features like patient management, appointment scheduling, authentication, and admin dashboard to improve clinic workflow and efficiency.'
     },
     {
       degree: 'AWS Certified Developer',
@@ -628,7 +579,7 @@ $(document).ready(function () {
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="${idx * 100}">
         <div class="timeline-dot"></div>
         <div class="mb-1 flex items-center gap-2 flex-wrap">
-          <h4 class="font-display font-bold text-base">${item.role || item.degree}</h4>
+          <h4 class="font-display font-bold text-base">${item.role || item.project}</h4>
         </div>
         <div class="flex items-center gap-3 mb-2">
           <span class="text-accent text-sm font-medium">${item.company || item.institution}</span>
