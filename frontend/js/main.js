@@ -165,11 +165,11 @@ $(document).ready(function () {
   ════════════════════════════════════════════ */
   (function initTyping() {
     const phrases = [
-      'web applications.',
-      'scalable APIs.',
-      'stunning UIs.',
-      'full-stack solutions.',
-      'developer tools.',
+      'Fullstack Developer',
+      'Backend Developer',
+      'Frontend Developer',
+      'MERNStack Developer',
+      'Developer Tools',
     ];
 
     let phraseIndex = 0;
