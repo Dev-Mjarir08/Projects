@@ -433,7 +433,7 @@ $(document).ready(function () {
   const projects = [
     {
       id: 1,
-      title: 'Dent-Care',
+      title: 'Dent-Care – Node.js Backend Project ',
       description: 'A backend-driven dental clinic management system built with Node.js and Express. Features include patient registration, appointment scheduling, secure authentication, and an admin dashboard for efficient clinic management. Designed with a structured MVC architecture and optimized database queries for performance. Ensures smooth data handling and a user-friendly workflow for managing clinic operations.',
       category: 'backend',
       tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
@@ -444,7 +444,7 @@ $(document).ready(function () {
       featured: true
     }, {
       id: 2,
-      title: 'Employee Management System',
+      title: 'Employee Management System – Full Stack MERN Project',
       description: 'A backend-driven employee management system built with Node.js and Express. Features include employee CRUD operations, role-based authentication and an admin dashboard for efficient workforce management. Designed with a structured MVC architecture and optimized database queries for performance. Ensures smooth data handling and streamlined employee and administrative workflows.',
       category: 'backend',
       tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
