@@ -434,24 +434,24 @@ $(document).ready(function () {
     {
       id: 1,
       title: 'Dent-Care',
-      description: 'A modern dental clinic management system built with Node.js and Express. Features include patient registration, appointment booking, authentication system, admin dashboard, and real-time notifications for better clinic workflow.',
+      description: 'A backend-driven dental clinic management system built with Node.js and Express. Features include patient registration, appointment scheduling, secure authentication, and an admin dashboard for efficient clinic management. Designed with a structured MVC architecture and optimized database queries for performance. Ensures smooth data handling and a user-friendly workflow for managing clinic operations.',
       category: 'backend',
       tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
       icon: 'fas fa-tooth',
       iconBg: 'from-blue-500 to-cyan-600',
-      live: 'https://your-live-link.com',   
-      github: 'https://github.com/your-repo-link', 
+      live: 'https://your-live-link.com',
+      github: 'https://github.com/your-repo-link',
       featured: true
     }, {
       id: 2,
       title: 'Employee Management System',
-      description: 'A backend-driven employee management system built with Node.js and Express. Features include employee CRUD operations, role-based authentication, attendance tracking, and admin dashboard for efficient workforce management.',
+      description: 'A backend-driven employee management system built with Node.js and Express. Features include employee CRUD operations, role-based authentication and an admin dashboard for efficient workforce management. Designed with a structured MVC architecture and optimized database queries for performance. Ensures smooth data handling and streamlined employee and administrative workflows.',
       category: 'backend',
       tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
       icon: 'fas fa-users',
       iconBg: 'from-green-500 to-emerald-600',
-      live: 'https://pr-ems.onrender.com/',   
-      github: 'https://github.com/Dev-Mjarir08/PR-EMS', 
+      live: 'https://pr-ems.onrender.com/',
+      github: 'https://github.com/Dev-Mjarir08/PR-EMS',
       featured: true
     }
   ];
@@ -536,37 +536,37 @@ $(document).ready(function () {
       desc: 'Engineered a clinic management platform with Node.js, featuring secure authentication, appointment handling, and dashboard tools for efficient operations.'
     },
     {
-      role: 'Full Stack Developer',
-      company: 'NovaBuild Agency',
-      period: '2021 — 2023',
-      desc: 'Delivered 15+ client projects. Stack: React, Node.js, PostgreSQL. Introduced CI/CD pipelines and automated testing that cut deployment time by 80%.'
+      role: 'Portfolio Website',
+      company: 'Frontend Development (React)',
+      period: 'Apr-2026',
+      desc: 'Developed a responsive portfolio website using React, Tailwind CSS, and JavaScript, focusing on modern UI design, smooth navigation, and optimized performance.'
     },
     {
-      role: 'Frontend Developer',
-      company: 'Pixel Creative Studio',
-      period: '2020 — 2021',
-      desc: 'Built interactive marketing websites and web apps. Specialized in animations, performance optimization, and accessibility improvements.'
+      role: 'Employee Management System',
+      company: 'Full Stack Development',
+      period: 'Jun-2026',
+      desc: 'Built a full-stack employee management system using Node.js, Express, and MongoDB with React frontend, featuring authentication, CRUD operations, and admin dashboard.'
     }
   ];
 
   const education = [
     {
-      project: 'Dent-Care - Clinic Management System',
-      institution: 'Personal Project',
-      period: '2025',
-      desc: 'Built a full-stack dental clinic management system with Node.js, Express, and MongoDB. Designed features like patient management, appointment scheduling, authentication, and admin dashboard to improve clinic workflow and efficiency.'
+      degree: 'Full Stack Web Development',
+      institution: 'Red & White Skill Education',
+      period: '2024 – 2026',
+      desc: 'Pursuing full stack web development with hands-on experience in HTML, CSS, JavaScript, and modern frameworks, focusing on building responsive and scalable web applications.'
     },
     {
-      degree: 'AWS Certified Developer',
-      institution: 'Amazon Web Services',
-      period: '2022',
-      desc: 'Associate-level certification covering EC2, Lambda, S3, DynamoDB, API Gateway, and infrastructure-as-code with CloudFormation.'
+      degree: 'Higher Secondary (HSC) - Science',
+      institution: 'Arts, Commerce and Science Junior College',
+      period: 'Jun 2022 – Jun 2023',
+      desc: 'Completed Higher Secondary education in Science with a focus on analytical thinking and problem-solving, achieving a grade of B+.'
     },
     {
-      degree: 'Meta Front-End Pro Certificate',
-      institution: 'Meta / Coursera',
-      period: '2021',
-      desc: 'Advanced React patterns, performance optimization, testing strategies, and professional UI/UX design principles.'
+      degree: 'Full Stack Web Development Program',
+      institution: 'Nihar Skill Education',
+      period: '2023',
+      desc: 'Completed intensive training in full stack web development, covering frontend, backend, and database technologies with a focus on building scalable and production-ready applications.'
     }
   ];
 
@@ -579,7 +579,7 @@ $(document).ready(function () {
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="${idx * 100}">
         <div class="timeline-dot"></div>
         <div class="mb-1 flex items-center gap-2 flex-wrap">
-          <h4 class="font-display font-bold text-base">${item.role || item.project}</h4>
+          <h4 class="font-display font-bold text-base">${item.role || item.degree}</h4>
         </div>
         <div class="flex items-center gap-3 mb-2">
           <span class="text-accent text-sm font-medium">${item.company || item.institution}</span>
