@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="DentaCare – Premium dental clinic offering teeth cleaning, root canal, braces, whitening and more. Book your appointment today." />
+  <meta name="keywords" content="dental clinic, dentist, teeth cleaning, root canal, braces, teeth whitening" />
+  <title>DentaCare – Your Smile, Our Priority</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { display: ['Playfair Display', 'serif'], body: ['DM Sans', 'sans-serif'] },
+          colors: { brand: { 50: '#ecfeff', 100: '#cffafe', 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490', 900: '#164e63' } }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    body {
+      background-color: #020617;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* Navbar scroll effect */
+    #navbar {
+      background: transparent;
+    }
+
+    #navbar.nav-scrolled {
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+    }
+
+    /* Scroll-to-top */
+    #scrollTop {
+      display: none;
+    }
+
+    /* Hero particles canvas */
+    #particles-js {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Glass card */
+    .glass {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Gradient text */
+    .grad-text {
+      background: linear-gradient(135deg, #67e8f9, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Service card hover */
+    .service-card {
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), box-shadow .35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Testimonial */
+    .testimonial-slide {
+      display: none;
+    }
+
+    .testimonial-slide.active {
+      display: block;
+    }
+
+    /* Glow */
+    .glow-btn {
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+    }
+
+    .glow-btn:hover {
+      box-shadow: 0 0 35px rgba(6, 182, 212, 0.65);
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .animate-slideDown {
+      animation: slideDown 0.5s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar Placeholder -->
+  <div id="nav-placeholder"></div>

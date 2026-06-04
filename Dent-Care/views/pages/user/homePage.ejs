@@ -1,0 +1,333 @@
+<%- include('../../partials/header') %>
+<div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
+
+  <% if (message && message.success) { %>
+    <div id="flashSuccess"
+      class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-xl">
+      
+      <span><%= message.success %></span>
+      <button onclick="closeFlash('flashSuccess')">✕</button>
+    </div>
+  <% } %>
+
+  <% if (message && message.error) { %>
+    <div id="flashError"
+      class="flex items-center gap-3 bg-red-500 text-white px-5 py-3 rounded-xl mt-2">
+      
+      <span><%= message.error %></span>
+      <button onclick="closeFlash('flashError')">✕</button>
+    </div>
+  <% } %>
+
+</div>
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950">
+    <div id="particles-js"></div>
+
+    <!-- Decorative blobs -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <!-- Badge -->
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-medium tracking-widest uppercase mb-6"
+        data-aos="fade-down" data-aos-delay="100">
+        <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+        Trusted by 15,000+ Happy Patients
+      </div>
+
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight mb-6" data-aos="fade-up"
+        data-aos-delay="200">
+        Your Smile,<br /><span class="grad-text">Our Priority</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up"
+        data-aos-delay="350">
+        Experience world-class dental care in a warm, welcoming environment. Our expert team combines cutting-edge
+        technology with genuine compassion to give you the healthiest, most beautiful smile of your life.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="500">
+        <a href="/user/appointment"
+          class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full glow-btn hover:-translate-y-1 transition-all duration-300 text-sm tracking-wide">
+          Book Appointment →
+        </a>
+        <a href="contact.html"
+          class="px-8 py-4 border border-slate-600 text-slate-300 hover:border-cyan-500/50 hover:text-cyan-400 font-semibold rounded-full transition-all duration-300 text-sm tracking-wide backdrop-blur-sm">
+          Contact Us
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-6 mt-16 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="650">
+        <div class="text-center">
+          <p class="text-3xl font-bold grad-text">18+</p>
+          <p class="text-xs text-slate-500 mt-1">Years Experience</p>
+        </div>
+        <div class="text-center border-x border-slate-700/50">
+          <p class="text-3xl font-bold grad-text">15k+</p>
+          <p class="text-xs text-slate-500 mt-1">Happy Patients</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-bold grad-text">12</p>
+          <p class="text-xs text-slate-500 mt-1">Expert Doctors</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500">
+      <span class="text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-slate-500 to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FEATURES ══════════════════════════ -->
+  <section class="py-24 px-6 lg:px-16 bg-slate-950">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-cyan-500 text-sm font-medium tracking-widest uppercase mb-3" data-aos="fade-up">Why Choose Us</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white" data-aos="fade-up" data-aos-delay="100">Care You Can Trust
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="glass rounded-2xl p-8 service-card" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Quality Care</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">ISO-certified procedures with sterilized equipment and
+            evidence-based treatments. Your safety and comfort are our highest priorities at every visit.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="glass rounded-2xl p-8 service-card" data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Experienced Doctors</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Our board-certified dentists bring 15+ years of combined
+            expertise across all specialties — from cosmetic dentistry to oral surgery and orthodontics.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="glass rounded-2xl p-8 service-card" data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-500/5 border border-violet-500/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Modern Equipment</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Digital X-rays, 3D scanning, laser dentistry and AI-assisted
+            diagnostics ensure precise, less invasive treatments with faster recovery times.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SERVICES PREVIEW ══════════════════ -->
+  <section class="py-24 px-6 lg:px-16 bg-gradient-to-b from-slate-950 to-slate-900">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
+        <div>
+          <p class="text-cyan-500 text-sm font-medium tracking-widest uppercase mb-3" data-aos="fade-up">Our Services
+          </p>
+          <h2 class="text-4xl md:text-5xl font-bold text-white" data-aos="fade-up" data-aos-delay="100">What We Offer
+          </h2>
+        </div>
+        <a href="services.html"
+          class="text-cyan-400 hover:text-cyan-300 text-sm font-medium flex items-center gap-2 transition-colors"
+          data-aos="fade-up">
+          View all services <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service cards -->
+        <div class="glass rounded-2xl p-6 service-card group" data-aos="zoom-in" data-aos-delay="100">
+          <div class="text-4xl mb-4">🦷</div>
+          <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-cyan-400 transition-colors">Teeth Cleaning
+          </h3>
+          <p class="text-slate-500 text-sm">Professional scaling and polishing for spotless, healthy teeth.</p>
+          <a href="services.html"
+            class="mt-4 inline-flex items-center text-cyan-500 text-xs font-medium hover:gap-2 transition-all">Learn
+            more →</a>
+        </div>
+        <div class="glass rounded-2xl p-6 service-card group" data-aos="zoom-in" data-aos-delay="150">
+          <div class="text-4xl mb-4">🔬</div>
+          <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-cyan-400 transition-colors">Root Canal</h3>
+          <p class="text-slate-500 text-sm">Pain-free treatment saving your natural tooth from extraction.</p>
+          <a href="services.html"
+            class="mt-4 inline-flex items-center text-cyan-500 text-xs font-medium hover:gap-2 transition-all">Learn
+            more →</a>
+        </div>
+        <div class="glass rounded-2xl p-6 service-card group" data-aos="zoom-in" data-aos-delay="200">
+          <div class="text-4xl mb-4">😁</div>
+          <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-cyan-400 transition-colors">Dental Braces
+          </h3>
+          <p class="text-slate-500 text-sm">Traditional and invisible aligners for a perfectly straight smile.</p>
+          <a href="services.html"
+            class="mt-4 inline-flex items-center text-cyan-500 text-xs font-medium hover:gap-2 transition-all">Learn
+            more →</a>
+        </div>
+        <div class="glass rounded-2xl p-6 service-card group" data-aos="zoom-in" data-aos-delay="250">
+          <div class="text-4xl mb-4">✨</div>
+          <h3 class="text-white font-semibold text-lg mb-2 group-hover:text-cyan-400 transition-colors">Teeth Whitening
+          </h3>
+          <p class="text-slate-500 text-sm">Advanced laser whitening for a dazzling Hollywood smile.</p>
+          <a href="services.html"
+            class="mt-4 inline-flex items-center text-cyan-500 text-xs font-medium hover:gap-2 transition-all">Learn
+            more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TESTIMONIALS ══════════════════════ -->
+  <section class="py-24 px-6 lg:px-16 bg-slate-900">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-cyan-500 text-sm font-medium tracking-widest uppercase mb-3" data-aos="fade-up">Testimonials</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-14" data-aos="fade-up" data-aos-delay="100">What Patients
+        Say</h2>
+
+      <!-- Slider -->
+      <div id="testimonialSlider" class="relative">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide active">
+          <div class="glass rounded-3xl p-10 max-w-2xl mx-auto">
+            <div class="flex justify-center gap-1 mb-5">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+            </div>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8 italic">"DentaCare completely transformed my smile.
+              Dr. Johnson's expertise with veneers was exceptional — the results exceeded all my expectations. I finally
+              feel confident showing my teeth!"</p>
+            <div class="flex items-center justify-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
+                S</div>
+              <div class="text-left">
+                <p class="text-white font-semibold">Sarah Mitchell</p>
+                <p class="text-slate-500 text-sm">Marketing Director</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide">
+          <div class="glass rounded-3xl p-10 max-w-2xl mx-auto">
+            <div class="flex justify-center gap-1 mb-5">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+            </div>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8 italic">"I was terrified of root canals — but the team
+              made the whole experience completely pain-free. The clinic is spotless, the staff are warm, and the
+              results are amazing. Highly recommended!"</p>
+            <div class="flex items-center justify-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                J</div>
+              <div class="text-left">
+                <p class="text-white font-semibold">James Rodriguez</p>
+                <p class="text-slate-500 text-sm">Software Engineer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide">
+          <div class="glass rounded-3xl p-10 max-w-2xl mx-auto">
+            <div class="flex justify-center gap-1 mb-5">
+              <span class="text-yellow-400 text-xl">★★★★★</span>
+            </div>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8 italic">"My kids actually look forward to their dental
+              appointments now! The team here is so patient and gentle with children. We've been coming here for 3 years
+              and couldn't be happier."</p>
+            <div class="flex items-center justify-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-bold text-lg">
+                A</div>
+              <div class="text-left">
+                <p class="text-white font-semibold">Amanda Chen</p>
+                <p class="text-slate-500 text-sm">Teacher & Mother</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+          <button id="prevBtn"
+            class="w-10 h-10 rounded-full border border-slate-700 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-all duration-300">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <div class="flex gap-2" id="dots">
+            <button class="dot w-2.5 h-2.5 rounded-full bg-cyan-500 transition-all duration-300"
+              data-index="0"></button>
+            <button class="dot w-2.5 h-2.5 rounded-full bg-slate-700 hover:bg-slate-500 transition-all duration-300"
+              data-index="1"></button>
+            <button class="dot w-2.5 h-2.5 rounded-full bg-slate-700 hover:bg-slate-500 transition-all duration-300"
+              data-index="2"></button>
+          </div>
+          <button id="nextBtn"
+            class="w-10 h-10 rounded-full border border-slate-700 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 flex items-center justify-center transition-all duration-300">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CTA ════════════════════════════════ -->
+  <section
+    class="py-24 px-6 lg:px-16 bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-950 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-500/5 rounded-full blur-3xl">
+      </div>
+    </div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-6xl font-black text-white mb-6" data-aos="fade-up">
+        Ready for a <span class="grad-text">Brighter Smile?</span>
+      </h2>
+      <p class="text-slate-400 text-lg mb-10" data-aos="fade-up" data-aos-delay="100">
+        Schedule your free consultation today and take the first step toward the smile you've always dreamed of.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
+        <a href="/user/appointment"
+          class="px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-full glow-btn hover:-translate-y-1 transition-all duration-300">
+          Book Free Consultation
+        </a>
+        <a href="tel:+15551234567"
+          class="px-10 py-4 border border-slate-600 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          +1 (555) 123-4567
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../../partials/footer') %>
