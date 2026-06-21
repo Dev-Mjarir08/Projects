@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isAdmin } = require("../middleware/authMiddleware");
-const {
-  getInventory,
+import { verifyToken, isAdmin  } from "../middleware/authMiddleware.js";
+import { getInventory,
   createInventoryItem,
   updateInventoryItem,
   deleteInventoryItem,
-} = require("../controllers/inventoryController");
+ } from "../controllers/inventoryController.js";
 
 router.use(verifyToken);
 
@@ -15,4 +14,4 @@ router.post("/", isAdmin, createInventoryItem);
 router.put("/:id", isAdmin, updateInventoryItem);
 router.delete("/:id", isAdmin, deleteInventoryItem);
 
-module.exports = router;
+export default router;

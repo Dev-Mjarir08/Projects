@@ -1,5 +1,5 @@
-const Project = require("../models/Project");
-const User = require("../models/User");
+import Project from "../models/Project.js";
+import User from "../models/User.js";
 
 // Get Projects
 const getProjects = async (req, res, next) => {
@@ -116,7 +116,7 @@ const deleteProject = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getProjects,
   createProject,
   updateProject,

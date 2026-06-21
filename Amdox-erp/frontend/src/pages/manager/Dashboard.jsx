@@ -16,6 +16,7 @@ const iconMap = {
 };
 
 export default function ManagerDashboard() {
+  const [stats, setStats] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [projects, setProjects] = useState([]);
@@ -24,6 +25,9 @@ export default function ManagerDashboard() {
   const loadManagerData = async () => {
     try {
       setLoading(true);
+      const statsData = await apiFetch("/api/dashboard/stats");
+      setStats(statsData);
+
       const empData = await apiFetch("/api/employees");
       setEmployees(empData);
 
@@ -43,16 +47,11 @@ export default function ManagerDashboard() {
     loadManagerData();
   }, []);
 
-  // Format Stat Cards
-  const activeProjectsCount = projects.filter((p) => p.status === "Active").length;
-  const pendingTasksCount = tasks.filter((t) => t.status !== "completed").length;
-  const blockedTasksCount = tasks.filter((t) => t.status === "blocked").length;
-
-  const managerStatCards = [
-    { label: "Active Projects", value: activeProjectsCount.toString(), change: `+${projects.length} total`, trend: "up", icon: "projects", tone: "blue" },
-    { label: "Team Members", value: employees.length.toString(), change: "+3 joined", trend: "up", icon: "team", tone: "emerald" },
-    { label: "Pending Tasks", value: pendingTasksCount.toString(), change: "-12.5%", trend: "down", icon: "tasks", tone: "amber" },
-    { label: "Blocked Work", value: blockedTasksCount.toString(), change: `+${blockedTasksCount} alert`, trend: "up", icon: "reports", tone: "rose" },
+  const managerStatCards = stats?.statCards || [
+    { label: "Active Projects", value: "0", change: "+0 total", trend: "up", icon: "projects", tone: "blue" },
+    { label: "Team Members", value: "0", change: "+0 joined", trend: "up", icon: "team", tone: "emerald" },
+    { label: "Pending Tasks", value: "0", change: "Stable", trend: "down", icon: "tasks", tone: "amber" },
+    { label: "Blocked Work", value: "0", change: "+0 alert", trend: "up", icon: "reports", tone: "rose" },
   ];
 
   // Format Project Chart

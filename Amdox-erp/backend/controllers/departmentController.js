@@ -1,5 +1,5 @@
-const Department = require("../models/Department");
-const User = require("../models/User");
+import Department from "../models/Department.js";
+import User from "../models/User.js";
 
 // Get all departments
 const getDepartments = async (req, res, next) => {
@@ -83,7 +83,7 @@ const deleteDepartment = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getDepartments,
   createDepartment,
   updateDepartment,

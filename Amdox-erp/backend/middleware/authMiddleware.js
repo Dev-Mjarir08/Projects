@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "amdox_erp_secret_key_12345";
 
@@ -58,7 +58,7 @@ const isHR = authorizeRoles("admin", "hr");
 const isManager = authorizeRoles("admin", "manager");
 const isEmployee = authorizeRoles("admin", "hr", "manager", "employee");
 
-module.exports = {
+export {
   verifyToken,
   authorizeRoles,
   isAdmin,

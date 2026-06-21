@@ -1,4 +1,4 @@
-const Inventory = require("../models/Inventory");
+import Inventory from "../models/Inventory.js";
 
 // Get all inventory
 const getInventory = async (req, res, next) => {
@@ -123,7 +123,7 @@ const deleteInventoryItem = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getInventory,
   createInventoryItem,
   updateInventoryItem,

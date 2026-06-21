@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken } = require("../middleware/authMiddleware");
-const {
-  getAttendanceLogs,
+import { verifyToken  } from "../middleware/authMiddleware.js";
+import { getAttendanceLogs,
   getClockInStatus,
   clockIn,
   clockOut,
-} = require("../controllers/attendanceController");
+ } from "../controllers/attendanceController.js";
 
 router.use(verifyToken);
 
@@ -15,4 +14,4 @@ router.get("/status", getClockInStatus);
 router.post("/clock-in", clockIn);
 router.post("/clock-out", clockOut);
 
-module.exports = router;
+export default router;

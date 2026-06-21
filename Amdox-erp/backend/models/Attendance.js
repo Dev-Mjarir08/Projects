@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const attendanceSchema = new mongoose.Schema(
   {
@@ -33,4 +33,4 @@ const attendanceSchema = new mongoose.Schema(
 );
 
 const Attendance = mongoose.model("Attendance", attendanceSchema);
-module.exports = Attendance;
+export default Attendance;

@@ -1,11 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isHR } = require("../middleware/authMiddleware");
-const {
-  getLeaves,
+import { verifyToken, isHR  } from "../middleware/authMiddleware.js";
+import { getLeaves,
   applyLeave,
   reviewLeave,
-} = require("../controllers/leaveController");
+ } from "../controllers/leaveController.js";
 
 router.use(verifyToken);
 
@@ -13,4 +12,4 @@ router.get("/", getLeaves);
 router.post("/", applyLeave);
 router.patch("/:id", isHR, reviewLeave);
 
-module.exports = router;
+export default router;

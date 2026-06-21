@@ -1,6 +1,6 @@
-const transporter = require("../config/nodemailer");
+import transporter from "../config/nodemailer.js";
 
-const FROM_EMAIL = process.env.SMTP_FROM || '"AMDOX ERP" <noreply@amdoxerp.com>';
+const FROM_EMAIL = '"AMDOX ERP" <08mjarir@gmail.com>';
 
 const sendWelcomeEmail = async (email, name, password) => {
   const mailOptions = {
@@ -80,7 +80,7 @@ const sendPasswordResetEmail = async (email, resetUrl) => {
   return await transporter.sendMail(mailOptions);
 };
 
-module.exports = {
+export {
   sendWelcomeEmail,
   sendTaskAssignmentEmail,
   sendLeaveApprovalEmail,

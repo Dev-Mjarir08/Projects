@@ -1,7 +1,7 @@
-const User = require("../models/User");
-const Employee = require("../models/Employee");
-const Department = require("../models/Department");
-const { sendWelcomeEmail } = require("../services/mailService");
+import User from "../models/User.js";
+import Employee from "../models/Employee.js";
+import Department from "../models/Department.js";
+import { sendWelcomeEmail  } from "../services/mailService.js";
 
 // List Employees
 const getEmployees = async (req, res, next) => {
@@ -224,7 +224,7 @@ const deleteEmployee = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getEmployees,
   createEmployee,
   updateEmployee,

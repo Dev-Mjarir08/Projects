@@ -1,5 +1,3 @@
-import { tasks } from "../../data/tasks.js";
-
 const priorityClasses = {
   High: "bg-red-50 text-danger ring-red-100 dark:bg-red-950/35 dark:text-red-300 dark:ring-red-900/60",
   Medium:
@@ -19,7 +17,7 @@ const statusClasses = {
   Blocked: "bg-red-50 text-danger ring-red-100 dark:bg-red-950/35 dark:text-red-300 dark:ring-red-900/60",
 };
 
-export default function RecentTasks({ data = tasks.slice(0, 5) }) {
+export default function RecentTasks({ data = [] }) {
   return (
     <section className="erp-panel rounded-xl">
       <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 p-5 dark:border-slate-800">
@@ -41,37 +39,43 @@ export default function RecentTasks({ data = tasks.slice(0, 5) }) {
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100 bg-white/40 dark:divide-slate-800 dark:bg-slate-900/20">
-            {data.map((task) => (
-              <tr key={task.id} className="transition hover:bg-slate-50/90 dark:hover:bg-slate-800/45">
-                <td className="min-w-72 px-5 py-4">
-                  <p className="text-sm font-semibold text-slate-900 dark:text-white">{task.title}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {task.id} · Due {task.dueDate}
-                  </p>
-                </td>
-                <td className="whitespace-nowrap px-5 py-4 text-sm text-slate-600 dark:text-slate-300">
-                  {task.assignedTo}
-                </td>
-                <td className="whitespace-nowrap px-5 py-4">
-                  <span
-                    className={`inline-flex rounded-lg px-2.5 py-1 text-xs font-bold ring-1 ${
-                      priorityClasses[task.priority] ?? priorityClasses.Low
-                    }`}
-                  >
-                    {task.priority}
-                  </span>
-                </td>
-                <td className="whitespace-nowrap px-5 py-4">
-                  <span
-                    className={`inline-flex rounded-lg px-2.5 py-1 text-xs font-bold ring-1 ${
-                      statusClasses[task.status] ?? statusClasses.Pending
-                    }`}
-                  >
-                    {task.status}
-                  </span>
+            {data.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="px-5 py-8 text-center text-sm text-slate-400">
+                  No recent tasks found.
                 </td>
               </tr>
-            ))}
+            ) : (
+              data.map((task) => (
+                <tr key={task.id} className="transition hover:bg-slate-50/90 dark:hover:bg-slate-800/45">
+                  <td className="min-w-72 px-5 py-4">
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">{task.title}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      {task.id} · Due {task.dueDate}
+                    </p>
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4 text-sm text-slate-600 dark:text-slate-300">
+                    {task.assignedTo}
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4">
+                    <span
+                      className={`inline-flex rounded-lg px-2.5 py-1 text-xs font-bold ring-1 ${priorityClasses[task.priority] ?? priorityClasses.Low
+                        }`}
+                    >
+                      {task.priority}
+                    </span>
+                  </td>
+                  <td className="whitespace-nowrap px-5 py-4">
+                    <span
+                      className={`inline-flex rounded-lg px-2.5 py-1 text-xs font-bold ring-1 ${statusClasses[task.status] ?? statusClasses.Pending
+                        }`}
+                    >
+                      {task.status}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>

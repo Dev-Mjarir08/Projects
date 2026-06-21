@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isManager } = require("../middleware/authMiddleware");
-const {
-  getTasks,
+import { verifyToken, isManager  } from "../middleware/authMiddleware.js";
+import { getTasks,
   createTask,
   updateTask,
   deleteTask,
-} = require("../controllers/taskController");
+ } from "../controllers/taskController.js";
 
 router.use(verifyToken);
 
@@ -15,4 +14,4 @@ router.post("/", isManager, createTask);
 router.put("/:id", updateTask);
 router.delete("/:id", isManager, deleteTask);
 
-module.exports = router;
+export default router;

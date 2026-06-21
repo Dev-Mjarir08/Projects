@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isHR } = require("../middleware/authMiddleware");
-const {
-  getEmployees,
+import { verifyToken, isHR  } from "../middleware/authMiddleware.js";
+import { getEmployees,
   createEmployee,
   updateEmployee,
   deleteEmployee,
-} = require("../controllers/employeeController");
+ } from "../controllers/employeeController.js";
 
 router.use(verifyToken);
 
@@ -15,4 +14,4 @@ router.post("/", isHR, createEmployee);
 router.put("/:id", updateEmployee); // employees can update their own details, managers/HR can update anyone
 router.delete("/:id", isHR, deleteEmployee);
 
-module.exports = router;
+export default router;

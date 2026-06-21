@@ -1,6 +1,6 @@
-const Payroll = require("../models/Payroll");
-const User = require("../models/User");
-const Employee = require("../models/Employee");
+import Payroll from "../models/Payroll.js";
+import User from "../models/User.js";
+import Employee from "../models/Employee.js";
 
 // Get Payroll Records
 const getPayrollRecords = async (req, res, next) => {
@@ -174,7 +174,7 @@ const updatePayrollStatus = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getPayrollRecords,
   generatePayroll,
   updatePayrollStatus,

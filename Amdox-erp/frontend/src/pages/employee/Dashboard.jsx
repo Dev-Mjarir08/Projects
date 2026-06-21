@@ -23,7 +23,7 @@ export default function EmployeeDashboard() {
   const loadEmployeeData = async () => {
     try {
       setLoading(true);
-      const statsData = await apiFetch("/api/dashboard/employee");
+      const statsData = await apiFetch("/api/dashboard/stats");
       setStats(statsData);
 
       const taskData = await apiFetch("/api/tasks");

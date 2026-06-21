@@ -1,8 +1,8 @@
-const Task = require("../models/Task");
-const User = require("../models/User");
-const Project = require("../models/Project");
-const Notification = require("../models/Notification");
-const { sendTaskAssignmentEmail } = require("../services/mailService");
+import Task from "../models/Task.js";
+import User from "../models/User.js";
+import Project from "../models/Project.js";
+import Notification from "../models/Notification.js";
+import { sendTaskAssignmentEmail  } from "../services/mailService.js";
 
 // List Tasks
 const getTasks = async (req, res, next) => {
@@ -178,7 +178,7 @@ const deleteTask = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getTasks,
   createTask,
   updateTask,

@@ -1,26 +1,29 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const helmet = require("helmet");
-const cookieParser = require("cookie-parser");
-const path = require("path");
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import cookieParser from "cookie-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const connectDB = require("./config/db");
-const errorHandler = require("./middleware/errorMiddleware");
-const { apiLimiter } = require("./middleware/rateLimiter");
+import connectDB from "./config/db.js";
+import errorHandler from "./middleware/errorMiddleware.js";
+import { apiLimiter  } from "./middleware/rateLimiter.js";
 
 // Import Routes
-const authRoutes = require("./routes/authRoutes");
-const employeeRoutes = require("./routes/employeeRoutes");
-const departmentRoutes = require("./routes/departmentRoutes");
-const projectRoutes = require("./routes/projectRoutes");
-const taskRoutes = require("./routes/taskRoutes");
-const attendanceRoutes = require("./routes/attendanceRoutes");
-const leaveRoutes = require("./routes/leaveRoutes");
-const notificationRoutes = require("./routes/notificationRoutes");
-const inventoryRoutes = require("./routes/inventoryRoutes");
-const payrollRoutes = require("./routes/payrollRoutes");
-const dashboardRoutes = require("./routes/dashboardRoutes");
+import authRoutes from "./routes/authRoutes.js";
+import employeeRoutes from "./routes/employeeRoutes.js";
+import departmentRoutes from "./routes/departmentRoutes.js";
+import projectRoutes from "./routes/projectRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
+import attendanceRoutes from "./routes/attendanceRoutes.js";
+import leaveRoutes from "./routes/leaveRoutes.js";
+import notificationRoutes from "./routes/notificationRoutes.js";
+import inventoryRoutes from "./routes/inventoryRoutes.js";
+import payrollRoutes from "./routes/payrollRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

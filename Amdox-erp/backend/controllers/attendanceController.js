@@ -1,5 +1,5 @@
-const Attendance = require("../models/Attendance");
-const Employee = require("../models/Employee");
+import Attendance from "../models/Attendance.js";
+import Employee from "../models/Employee.js";
 
 // Get Attendance Logs
 const getAttendanceLogs = async (req, res, next) => {
@@ -159,7 +159,7 @@ const clockOut = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getAttendanceLogs,
   getClockInStatus,
   clockIn,

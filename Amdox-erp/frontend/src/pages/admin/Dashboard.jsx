@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { FiCalendar, FiCreditCard, FiDownload, FiUserCheck, FiUsers } from "react-icons/fi";
+import { FiBriefcase, FiCheckSquare, FiDownload, FiPackage, FiUsers } from "react-icons/fi";
 import AttendanceChart from "../../components/dashboard/AttendanceChart.jsx";
+import ProjectChart from "../../components/dashboard/ProjectChart.jsx";
 import RecentEmployees from "../../components/dashboard/RecentEmployees.jsx";
 import RecentTasks from "../../components/dashboard/RecentTasks.jsx";
 import StatCard from "../../components/dashboard/StatCard.jsx";
@@ -9,23 +10,25 @@ import PageHeader from "../../components/common/PageHeader.jsx";
 import { apiFetch } from "../../utils/api.js";
 
 const iconMap = {
-  attendance: FiUserCheck,
   employees: FiUsers,
-  leave: FiCalendar,
-  payroll: FiCreditCard,
+  inventory: FiPackage,
+  projects: FiBriefcase,
+  tasks: FiCheckSquare,
 };
 
-export default function HRDashboard() {
+export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [tasks, setTasks] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const loadHRData = async () => {
+  const loadDashboardData = async () => {
     try {
       setLoading(true);
-      const statsData = await apiFetch("/api/dashboard/admin");
+      
+      const statsData = await apiFetch("/api/dashboard/stats");
       setStats(statsData);
 
       const empData = await apiFetch("/api/employees");
@@ -34,32 +37,29 @@ export default function HRDashboard() {
       const taskData = await apiFetch("/api/tasks");
       setTasks(taskData);
 
+      const projData = await apiFetch("/api/projects");
+      setProjects(projData);
+
       const attendanceData = await apiFetch("/api/attendance");
       setAttendance(attendanceData);
     } catch (err) {
-      console.error("Failed to load HR dashboard data:", err.message);
+      console.error("Error loading dashboard data:", err.message);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadHRData();
+    loadDashboardData();
   }, []);
 
-  // Format Stat Cards
-  const totalEmployees = employees.length;
-  const presentCount = stats?.todayStats?.present || 0;
-  const leaveRequestsCount = stats?.todayStats?.leavesPending || 0;
+  // Format Project Chart Data
+  const projectChartData = projects.map((p) => ({
+    name: p.name.split(" ")[0], // abbreviation
+    progress: p.progress,
+  }));
 
-  const hrStatCards = [
-    { label: "Total Employees", value: totalEmployees.toString(), change: "+8.4%", trend: "up", icon: "employees", tone: "blue" },
-    { label: "Present Today", value: presentCount.toString(), change: "+2.2%", trend: "up", icon: "attendance", tone: "emerald" },
-    { label: "Leave Requests", value: leaveRequestsCount.toString(), change: `+${leaveRequestsCount} new`, trend: "up", icon: "leave", tone: "amber" },
-    { label: "Payroll Ready", value: "96%", change: "+1.8%", trend: "up", icon: "payroll", tone: "cyan" },
-  ];
-
-  // Format Task Chart
+  // Format Task Chart Data
   const totalTasks = tasks.length || 1;
   const completedTasks = tasks.filter((t) => t.status === "completed").length;
   const inProgressTasks = tasks.filter((t) => t.status === "in-progress").length;
@@ -73,9 +73,9 @@ export default function HRDashboard() {
     { name: "Blocked", value: Math.round((blockedTasks / totalTasks) * 100) },
   ];
 
-  // Format Recent Tasks
+  // Format Recent Tasks Data
   const recentTasksData = tasks.slice(0, 5).map((t) => ({
-    id: t.id.substring(t.id.length - 8).toUpperCase(),
+    id: t.id.substring(t.id.length - 8).toUpperCase(), // format ID nicely
     title: t.title,
     dueDate: t.due_date,
     assignedTo: t.assignee_name,
@@ -83,7 +83,7 @@ export default function HRDashboard() {
     status: t.status === "in-progress" ? "In Progress" : t.status.charAt(0).toUpperCase() + t.status.slice(1),
   }));
 
-  // Format Recent Employees
+  // Format Recent Employees Data
   const recentEmployeesData = employees.slice(0, 5).map((e) => ({
     id: e.employeeId || "EMP-SYSTEM",
     name: e.name,
@@ -92,17 +92,18 @@ export default function HRDashboard() {
     status: e.status === "active" ? "Active" : "On Leave",
   }));
 
-  // Format Attendance Chart
+  // Format Attendance Chart Data by grouping
+  // Simple grouping by date for last 6 records
   const attendanceChartData = attendance.slice(0, 6).reverse().map((att) => ({
     month: att.date.substring(5), // MM-DD
-    present: attendance.filter((a) => a.date === att.date && a.status === "present").length * 150 + 800,
+    present: attendance.filter((a) => a.date === att.date && a.status === "present").length * 150 + 800, // scaled for chart look
     remote: attendance.filter((a) => a.date === att.date && a.status === "remote").length * 80 + 150,
   }));
 
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-background dark:bg-slate-950">
-        <p className="text-sm font-semibold text-slate-500 animate-pulse">Loading HR dashboard...</p>
+        <p className="text-sm font-semibold text-slate-500 animate-pulse">Loading operations overview...</p>
       </div>
     );
   }
@@ -110,9 +111,9 @@ export default function HRDashboard() {
   return (
     <div className="space-y-6">
       <PageHeader
-        eyebrow="HR Dashboard"
-        title="People Operations"
-        description="Track workforce availability, leave workload, payroll readiness, and employee activity."
+        eyebrow="Admin Dashboard"
+        title="Enterprise Operations Overview"
+        description="Monitor people, delivery, inventory, and operational workload across AMDOX ERP."
         actions={
           <button className="erp-focus inline-flex h-11 items-center gap-2 rounded-xl bg-primary px-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
             <FiDownload className="h-4 w-4" />
@@ -122,9 +123,13 @@ export default function HRDashboard() {
       />
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {hrStatCards.map((card) => (
-          <StatCard key={card.label} {...card} icon={iconMap[card.icon]} />
-        ))}
+        {stats?.statCards ? (
+          stats.statCards.map((card) => (
+            <StatCard key={card.label} {...card} icon={iconMap[card.icon]} />
+          ))
+        ) : (
+          <p className="text-sm text-slate-400">Loading stats...</p>
+        )}
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[1.35fr_0.9fr]">
@@ -132,10 +137,12 @@ export default function HRDashboard() {
         <TaskChart data={taskChartData} />
       </section>
 
-      <section className="grid gap-6 xl:grid-cols-2">
-        <RecentEmployees data={recentEmployeesData} />
+      <section className="grid gap-6 xl:grid-cols-[0.95fr_1.35fr]">
+        <ProjectChart data={projectChartData.length ? projectChartData : undefined} />
         <RecentTasks data={recentTasksData} />
       </section>
+
+      <RecentEmployees data={recentEmployeesData} />
     </div>
   );
 }

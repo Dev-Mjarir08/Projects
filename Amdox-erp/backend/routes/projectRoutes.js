@@ -1,12 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isManager } = require("../middleware/authMiddleware");
-const {
-  getProjects,
+import { verifyToken, isManager  } from "../middleware/authMiddleware.js";
+import { getProjects,
   createProject,
   updateProject,
   deleteProject,
-} = require("../controllers/projectController");
+ } from "../controllers/projectController.js";
 
 router.use(verifyToken);
 
@@ -15,4 +14,4 @@ router.post("/", isManager, createProject);
 router.put("/:id", isManager, updateProject);
 router.delete("/:id", isManager, deleteProject);
 
-module.exports = router;
+export default router;

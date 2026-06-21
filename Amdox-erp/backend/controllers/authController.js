@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
-const Employee = require("../models/Employee");
-const { sendPasswordResetEmail } = require("../services/mailService");
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
+import Employee from "../models/Employee.js";
+import { sendPasswordResetEmail  } from "../services/mailService.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "amdox_erp_secret_key_12345";
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
@@ -238,7 +238,7 @@ const changePassword = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   login,
   register,
   logout,

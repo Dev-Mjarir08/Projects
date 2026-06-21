@@ -1,8 +1,8 @@
-const Leave = require("../models/Leave");
-const Employee = require("../models/Employee");
-const User = require("../models/User");
-const Notification = require("../models/Notification");
-const { sendLeaveApprovalEmail } = require("../services/mailService");
+import Leave from "../models/Leave.js";
+import Employee from "../models/Employee.js";
+import User from "../models/User.js";
+import Notification from "../models/Notification.js";
+import { sendLeaveApprovalEmail  } from "../services/mailService.js";
 
 // List Leaves
 const getLeaves = async (req, res, next) => {
@@ -162,7 +162,7 @@ const reviewLeave = async (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   getLeaves,
   applyLeave,
   reviewLeave,

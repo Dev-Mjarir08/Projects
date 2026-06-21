@@ -1,11 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const { verifyToken, isHR } = require("../middleware/authMiddleware");
-const {
-  getPayrollRecords,
+import { verifyToken, isHR  } from "../middleware/authMiddleware.js";
+import { getPayrollRecords,
   generatePayroll,
   updatePayrollStatus,
-} = require("../controllers/payrollController");
+ } from "../controllers/payrollController.js";
 
 router.use(verifyToken);
 
@@ -13,4 +12,4 @@ router.get("/", getPayrollRecords);
 router.post("/generate", isHR, generatePayroll);
 router.patch("/:id", isHR, updatePayrollStatus);
 
-module.exports = router;
+export default router;

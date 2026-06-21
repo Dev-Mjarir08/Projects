@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const leaveSchema = new mongoose.Schema(
   {
@@ -39,4 +39,4 @@ const leaveSchema = new mongoose.Schema(
 );
 
 const Leave = mongoose.model("Leave", leaveSchema);
-module.exports = Leave;
+export default Leave;
