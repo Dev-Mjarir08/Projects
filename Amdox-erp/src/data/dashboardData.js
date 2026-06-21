@@ -10,6 +10,7 @@ export const roleConfigs = {
     navItems: [
       { label: "Dashboard", path: "/admin/dashboard", icon: "dashboard" },
       { label: "Employees", path: "/admin/employees", icon: "employees" },
+      { label: "Departments", path: "/admin/departments", icon: "team" },
       { label: "Attendance", path: "/admin/attendance", icon: "attendance" },
       { label: "Leave Management", path: "/admin/leave-management", icon: "leave" },
       { label: "Projects", path: "/admin/projects", icon: "projects" },

@@ -15,6 +15,7 @@ import {
   FiUserCheck,
   FiUsers,
 } from "react-icons/fi";
+import { useAuth } from "../context/AuthContext.jsx";
 import Footer from "../components/common/Footer.jsx";
 import Navbar from "../components/common/Navbar.jsx";
 import Sidebar from "../components/common/Sidebar.jsx";
@@ -37,9 +38,16 @@ const iconMap = {
 };
 
 export default function RoleLayout({ role }) {
+  const { user } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const config = roleConfigs[role];
+
+  const activeUser = user ? {
+    name: user.name,
+    role: user.title || user.role,
+    initials: user.initials,
+  } : config.user;
 
   const items = useMemo(
     () =>
@@ -63,7 +71,7 @@ export default function RoleLayout({ role }) {
 
       <div className={`min-h-screen transition-all duration-300 ${isCollapsed ? "lg:pl-20" : "lg:pl-72"}`}>
         <Navbar
-          user={config.user}
+          user={activeUser}
           workspace={config.workspace}
           onOpenSidebar={() => setIsMobileOpen(true)}
         />
