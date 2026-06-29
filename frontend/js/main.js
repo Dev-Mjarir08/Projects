@@ -433,7 +433,7 @@ $(document).ready(function () {
   const projects = [
     {
       id: 1,
-      title: 'Dent-Care – Node.js Backend Project ',
+      title: 'DentCare – Node.js Backend Project ',
       description: 'A backend-driven dental clinic management system built with Node.js and Express. Features include patient registration, appointment scheduling, secure authentication, and an admin dashboard for efficient clinic management. Designed with a structured MVC architecture and optimized database queries for performance. Ensures smooth data handling and a user-friendly workflow for managing clinic operations.',
       category: 'backend',
       tags: ['Node.js', 'Express.js', 'MongoDB', 'EJS', 'Authentication'],
@@ -530,7 +530,7 @@ $(document).ready(function () {
   ════════════════════════════════════════════ */
   const experiences = [
     {
-      role: 'Dant Care',
+      role: 'DantCare',
       company: 'Backend Developement',
       period: 'May-2026',
       desc: 'Engineered a clinic management platform with Node.js, featuring secure authentication, appointment handling, and dashboard tools for efficient operations.'
